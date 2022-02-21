@@ -1,0 +1,2 @@
+[INFO ] 2021-12-21 13:38:49.842 [main] o.a.s.p.i.BootstrapInitializer - Database name is `PostgreSQL`, version is `14.0 (Debian 14.0-1.pgdg110+1)`
+[INFO ] 2021-12-21 13:38:50.026 [main] o.a.s.p.frontend.ShardingSphereProxy - ShardingSphere-Proxy start success
