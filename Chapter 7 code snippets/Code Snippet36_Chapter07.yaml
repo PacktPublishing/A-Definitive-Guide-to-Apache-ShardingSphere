@@ -1,0 +1,3 @@
+props: # custom properties
+custom-time-out: 30
+custom-max-retries: 5
