@@ -1,0 +1,8 @@
+mode:
+type: Cluster
+repository:
+type: CustomRepository # custom repository type
+props: # custom properties
+custom-time-out-: 30
+custom-max-retries: 5
+overwrite: false
