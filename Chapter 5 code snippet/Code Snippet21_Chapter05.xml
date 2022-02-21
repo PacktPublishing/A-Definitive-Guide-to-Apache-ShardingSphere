@@ -1,0 +1,22 @@
+ 
+ <!-- Standalone Mode -->
+ 
+<shardingsphere:mode type="Standalone" repository-ref="standaloneRepository" overwrite="true"/>
+ 
+<standalone:repository id="standaloneRepository" type="File">
+    <props>
+        <prop key="path"></prop>
+    </props>
+</standalone:repository>
+
+ <!-- Cluster Mode -->
+ 
+ 
+<shardingsphere:mode type="Cluster" repository-ref="clusterRepository" overwrite="true"/>
+ 
+ <cluster:repository id="clusterRepository" type="ZooKeeper" namespace="governance" server-lists="localhost:2181">
+    <props>
+        <prop key="max-retries">3</prop>
+        <prop key="operation-timeout-milliseconds">3000</prop>
+    </props>
+</cluster:repository>
