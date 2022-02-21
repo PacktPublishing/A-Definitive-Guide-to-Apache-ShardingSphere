@@ -1,0 +1,1 @@
+CREATE DEFAULT SHADOW ALGORITHM NAME = simple_hint_algorithm;
