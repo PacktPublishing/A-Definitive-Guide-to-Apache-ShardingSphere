@@ -1,0 +1,13 @@
+<encrypt:encrypt-algorithm id="name_encryptor" type="AES">
+    <props>
+        <prop key="aes-key-value">123456</prop>
+    </props>
+</encrypt:encrypt-algorithm>
+<encrypt:encrypt-algorithm id="pwd_encryptor" type="assistedTest" />
+
+<encrypt:rule id="encryptRule">
+    <encrypt:table name="t_user">
+        <encrypt:column logic-column="user_name" cipher-column="user_name" plain-column="user_name_plain" encrypt-algorithm-ref="name_encryptor" />
+        <encrypt:column logic-column="pwd" cipher-column="pwd" assisted-query-column="assisted_query_pwd" encrypt-algorithm-ref="pwd_encryptor" />
+    </encrypt:table>
+</encrypt:rule>
