@@ -1,0 +1,9 @@
+18:58:17,071 [Thread-1] INFO jTPCC : Term-00, 
+# tPMC (Transactions Per Minute): The tPMC metric is the number of new order 
+18:58:17,071 [Thread-1] INFO jTPCC : Term-00, Measured tpmC (NewOrders) = 136.71 
+# tpmTOTAL Total transaction per minute
+18:58:17,071 [Thread-1] INFO jTPCC : Term-00, Measured tpmTOTAL = 298.81 
+18:58:17,071 [Thread-1] INFO jTPCC : Term-00, Session Start = 2022-01-26 18:53:16 
+18:58:17,071 [Thread-1] INFO jTPCC : Term-00, Session End = 2022-01-26 18:58:17 
+# Transaction Count 
+18:58:17,071 [Thread-1] INFO jTPCC : Term-00, Transaction Count = 1494

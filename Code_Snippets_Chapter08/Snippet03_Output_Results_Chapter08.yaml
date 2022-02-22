@@ -1,0 +1,55 @@
+sysbench 1.0.20 (using bundled LuaJIT 2.1.0-beta2)
+Running the test with following options:
+Number of threads: 64
+Report intermediate results every 10 second(s)
+Initializing random number generator from current time
+Initializing worker threads...
+Threads started!
+# Test results are reported every 10 seconds; TPS, Read per second, Write per second, and response time statistics above 99%
+[ 10s ] thds: 64 tps: 15441.66 qps: 92654.79 (r/w/o: 0.00/61770.66/30884.13) lat (ms,99%): 6.09 err/s: 0.00 reconn/s: 0.00
+[ 20s ] thds: 64 tps: 15308.61 qps: 91877.04 (r/w/o: 0.00/61258.83/30618.21) lat (ms,99%): 6.32 err/s: 0.00 reconn/s: 0.00
+[ 30s ] thds: 64 tps: 15810.21 qps: 94861.24 (r/w/o: 0.00/63241.63/31619.61) lat (ms,99%): 5.67 err/s: 0.00 reconn/s: 0.00
+[ 40s ] thds: 64 tps: 15610.18 qps: 93663.31 (r/w/o: 0.00/62441.94/31221.37) lat (ms,99%): 6.55 err/s: 0.00 reconn/s: 0.00
+[ 50s ] thds: 64 tps: 16096.23 qps: 96571.15 (r/w/o: 0.00/64379.70/32191.45) lat (ms,99%): 5.37 err/s: 0.00 reconn/s: 0.00
+[ 60s ] thds: 64 tps: 16078.31 qps: 96462.24 (r/w/o: 0.00/64305.62/32156.61) lat (ms,99%): 5.47 err/s: 0.00 reconn/s: 0.0
+SQL statistics:
+    queries performed:
+    # Total reads
+        read:                            0  
+    # Total writes  
+        write:                           7563824
+    # Total other operations such as COMMIT 
+        other:                           3781912
+     # Total Count
+        total:                           11345736
+    #  Total transactions(transactions per second)
+    transactions:                        1890956 (15755.04 per sec.)
+    # Total operations(operations per second)
+    queries:                             11345736 (94530.25 per sec.)
+    # The number of ignored errors(ignored error count per second)
+    ignored errors:                      0      (0.00 per sec.)
+    # The number of reconnections (reconnection count per second)
+    reconnects:                          0      (0.00 per sec.)
+
+General statistics:
+    # Total time
+    total time:                          60.0207s
+    # Total number of events
+    total number of events:              1890956
+
+Latency (ms):
+    #  Minimum latency 
+         min:                                    1.77
+    # Average latency
+         avg:                                    4.06
+    # Maximum latency
+         max:                                  303.13
+    # Over 99% average time
+         99th percentile:                        5.88
+         sum:                              7678839.72
+
+Threads fairness:
+    # On average, each thread completed 29546.1875 events, and the standard deviation is 100.66
+    events (avg/stddev):           29546.1875/100.66
+    # The average execution time of each thread is 119.9819 se, and the standard deviation is 0     
+    execution time (avg/stddev):   119.9819/0.00 

@@ -1,0 +1,1 @@
+DROP SHARDING SCALING scaling_name;

@@ -1,0 +1,2 @@
+mysql> stop scaling source writing 1449610040776297;
+Query OK, 0 rows affected (0.05 sec)

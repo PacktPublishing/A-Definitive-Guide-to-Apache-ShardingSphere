@@ -1,0 +1,45 @@
+rules:
+- !SHADOW
+  dataSources:
+    shadowDataSource:
+      sourceDataSourceName: ds
+      shadowDataSourceName: ds_shadow
+  tables:
+    t_order:
+      dataSourceNames:
+        - shadowDataSource
+      shadowAlgorithmNames:
+        - user_id_insert_value_match_algorithm
+        - user_id_update_value_match_algorithm
+        - user_id_delete_value_match_algorithm
+        - user_id_select_value_match_algorithm
+        - simple_hint_algorithm
+  shadowAlgorithms:
+    user_id_insert_value_match_algorithm:
+      type: VALUE_MATCH
+      props:
+        operation: insert
+        column: user_id
+        value: 1
+    user_id_update_value_match_algorithm:
+      type: VALUE_MATCH
+      props:
+        operation: update
+        column: user_id
+        value: 1
+    user_id_delete_value_match_algorithm:
+      type: VALUE_MATCH
+      props:
+        operation: delete
+        column: user_id
+        value: 1
+    user_id_select_value_match_algorithm:
+      type: VALUE_MATCH
+      props:
+        operation: select
+        column: user_id
+        value: 1            
+    simple_hint_algorithm:
+      type: SIMPLE_HINT
+      props:
+        foo: bar

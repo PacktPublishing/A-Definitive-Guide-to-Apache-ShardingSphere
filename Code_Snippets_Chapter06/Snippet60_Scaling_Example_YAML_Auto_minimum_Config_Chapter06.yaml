@@ -1,0 +1,15 @@
+rules:
+- !SHARDING
+  # ignored configuration
+  
+  scalingName: default_scaling
+  scaling:
+    default_scaling:
+      completionDetector:
+        type: IDLE
+        props:
+          incremental-task-idle-minute-threshold: 30
+      dataConsistencyChecker:
+        type: DATA_MATCH
+        props:
+          chunk-size: 1000

@@ -1,0 +1,8 @@
+mysql> show scaling check algorithms;
++-------------+----------------------------+--------------------------------------------------------------+----------------+
+| type        | description                | supported_database_types                                     | provider       |
++-------------+----------------------------+--------------------------------------------------------------+----------------+
+| CRC32_MATCH | Match CRC32 of records.    | MySQL                                                        | ShardingSphere |
+| DATA_MATCH  | Match raw data of records. | SQL92,openGauss,PostgreSQL,MySQL,MariaDB,H2,Oracle,SQLServer | ShardingSphere |
++-------------+----------------------------+--------------------------------------------------------------+----------------+
+2 rows in set (0.05 sec)

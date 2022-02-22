@@ -1,0 +1,6 @@
+rules:
+  - !AUTHORITY
+    users:
+      - proxy_user@%:proxy_password
+    provider:
+      type: ALL_PRIVILEGES_PERMITTED

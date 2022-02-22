@@ -1,0 +1,4 @@
+Starting the ShardingSphere-Proxy ...
+The classpath is /opt/shardingsphere-proxy/conf:.:/opt/shardingsphere-proxy/lib/*:/opt/shardingsphere-proxy/ext-lib/*
+Please check the STDOUT file: /opt/shardingsphere-proxy/logs/stdout.log
+[INFO ] 2021-12-21 06:36:30.284 [main] o.a.s.p.frontend.ShardingSphereProxy - ShardingSphere-Proxy start success

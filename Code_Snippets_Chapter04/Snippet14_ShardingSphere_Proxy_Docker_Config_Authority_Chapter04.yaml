@@ -1,0 +1,6 @@
+rules:
+  - !AUTHORITY
+    users:
+      - postgres@%:postgres
+    provider:
+      type: ALL_PRIVILEGES_PERMITTED

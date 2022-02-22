@@ -1,0 +1,36 @@
+function setCP()
+{
+    case "$(getProp db)" in
+    firebird)
+        cp="../lib/firebird/*:../lib/*"
+        ;;
+    oracle)
+        cp="../lib/oracle/*"
+        if [ ! -z "${ORACLE_HOME}" -a -d ${ORACLE_HOME}/lib ] ; then
+        cp="${cp}:${ORACLE_HOME}/lib/*"
+        fi
+        cp="${cp}:../lib/*"
+        ;;
+    postgres)
+        cp="../lib/postgres/*:../lib/*"
+        ;;
+    mysql)
+        cp="../lib/mysql/*:../lib/*"
+        ;;
+    esac
+    myCP=".:${cp}:../dist/*"
+    export myCP
+}
+
+...Omitted
+
+case "$(getProp db)" in
+    firebird|oracle|postgres|mysql)
+    ;;
+    "") echo "ERROR: missing db= config option in ${PROPS}" >&2
+    exit 1
+    ;;
+    *)  echo "ERROR: unsupported database type 'db=$(getProp db)' in ${PROPS}" >&2
+    exit 1
+    ;;
+esac

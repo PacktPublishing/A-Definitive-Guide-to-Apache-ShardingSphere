@@ -1,0 +1,19 @@
+# Fork: 3 of 3  Cycle Count
+# Warmup Iteration   1: 432805.935 ops/s
+Iteration   1: 442916.346 ops/s
+Iteration   2: 445836.121 ops/s
+Iteration   3: 439465.291 ops/s
+Iteration   4: 448490.747 ops/s
+Iteration   5: 434304.279 ops/s
+
+
+Result: 437959.831 ±(99.9%) 6719.199 ops/s [Average]                                                        
+# Restult Mean value and margin of error
+  Statistics: (min, avg, max) = (426614.397, 437959.831, 448490.747), stdev = 6285.143                      
+#  min (Minimum)，avg (average)，max (maximum)，stdev (standard deviation)
+  Confidence interval (99.9%): [431240.632, 444679.030]                                                     
+
+# Run complete. Total time: 00:02:00
+# Samples Total executions, Score average value; Error means the margin of error
+Benchmark                                                    Mode  Samples       Score      Error  Units
+i.w.j.j.UnpooledFullPointSelectBenchmark.FullPointSelect    thrpt       15  437959.831 ± 6719.199  ops/s    

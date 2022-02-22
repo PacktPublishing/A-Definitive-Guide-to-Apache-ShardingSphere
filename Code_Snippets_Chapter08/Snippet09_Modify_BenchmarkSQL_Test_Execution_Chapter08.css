@@ -1,0 +1,3 @@
+./runDatabaseBuild.sh tpcc.mysql
+
+./runBenchmark.sh tpcc.mysql

@@ -1,0 +1,2 @@
+mvn clean package 
+java -Dconf=config.properties -jar benchmarks.jar UnpooledFullPointSelectBenchmark -f 3 -i 5 -r 5 -t 1 -w 3 -wf 1 -wi 1 > log.txt

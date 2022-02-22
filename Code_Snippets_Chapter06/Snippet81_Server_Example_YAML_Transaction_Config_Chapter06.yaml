@@ -1,0 +1,4 @@
+rules:
+  - !TRANSACTION
+    defaultType: XA 
+    providerType: Narayana/Atomikos
