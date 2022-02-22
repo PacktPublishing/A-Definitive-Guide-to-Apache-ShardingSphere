@@ -1,0 +1,41 @@
+public final class ShardingReadwriteSplittingClusterConfigurationCreator {
+    
+    public static void main(String[] args) throws SQLException {
+        ShardingReadwriteSplittingClusterConfigurationCreator creator = new ShardingReadwriteSplittingClusterConfigurationCreator();
+        creator.create();
+    }
+    
+    public DataSource create() throws SQLException {
+        return ShardingSphereDataSourceFactory.createDataSource(
+                ModeConfigurationCreator.create(),
+                createDataSourceMap(),
+                Arrays.asList(ShardingConfigurationCreator.create(), ReadwriteSplittingConfigurationCreator.create()),
+                createProperties());
+    }
+    
+    private static Map<String, DataSource> createDataSourceMap() {
+        Map<String, DataSource> result = new HashMap<>(6, 1);
+        result.put("demo_write_ds_0", createDataSource("demo_write_ds_0"));
+        result.put("demo_write_ds_0_read_0", createDataSource("demo_write_ds_0_read_0"));
+        result.put("demo_write_ds_0_read_1", createDataSource("demo_write_ds_0_read_1"));
+        result.put("demo_write_ds_1", createDataSource("demo_write_ds_1"));
+        result.put("demo_write_ds_1_read_0", createDataSource("demo_write_ds_1_read_0"));
+        result.put("demo_write_ds_1_read_1", createDataSource("demo_write_ds_1_read_1"));
+        return result;
+    }
+    
+    public static DataSource createDataSource(final String dataSourceName) {
+        HikariDataSource result = new HikariDataSource();
+        result.setDriverClassName("com.mysql.jdbc.Driver");
+        result.setJdbcUrl(String.format("jdbc:mysql://127.0.0.1:3306/%s?serverTimezone=UTC&useSSL=false&useUnicode=true&characterEncoding=UTF-8", dataSourceName));
+        result.setUsername("root");
+        result.setPassword("root");
+        return result;
+    }
+    
+    private static Properties createProperties() {
+        Properties properties = new Properties();
+        properties.put("sql-show", true);
+        return properties;
+    }
+}
