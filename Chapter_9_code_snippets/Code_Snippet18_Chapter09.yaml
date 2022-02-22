@@ -1,0 +1,12 @@
+rules:
+- !AUTHORITY
+users:
+- root@%:root
+- sharding@:sharding
+provider:
+type: ALL_PRIVILEGES_PERMITTED
+
+props:
+proxy-backend-query-fetch-size: 1000
+proxy-frontend-executor-size: 1000 
+proxy-backend-executor-suitable: OLTP
