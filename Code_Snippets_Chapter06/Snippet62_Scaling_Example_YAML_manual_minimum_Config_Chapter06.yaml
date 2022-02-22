@@ -1,0 +1,7 @@
+rules:
+- !SHARDING
+  # ignored configuration
+  
+  scalingName: default_scaling
+  scaling:
+    default_scaling:
