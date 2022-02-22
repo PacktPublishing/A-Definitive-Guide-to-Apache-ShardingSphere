@@ -1,0 +1,11 @@
+rules:
+- !AUTHORITY
+users:
+- root@%:root
+- sharding@:sharding
+provider:
+type: NATIVE
+props:
+proxy-frontend-executor-size: 200 
+proxy-backend-executor-suitable: OLTP
+sql-show: true
