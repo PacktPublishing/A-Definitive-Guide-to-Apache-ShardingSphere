@@ -1,0 +1,27 @@
+# Logic Database Name Used for External Services
+schemaName: sharding_db
+
+# Actual Data Source in Use
+dataSources:
+  ds_0:
+    dataSourceClassName: com.zaxxer.hikari.HikariDataSource
+    driverClassName: com.mysql.jdbc.Driver
+    jdbcUrl: jdbc:mysql://localhost:3306/db0
+    username: root
+    password: 
+ 
+# Specify the Sharding Rule; The example codes means split data tables in the database into 4 shards
+rules:
+- !SHARDING
+  autoTables:
+    t_order:
+      actualDataSources: ds_0
+      shardingStrategy:
+        standard:
+          shardingColumn: order_id
+          shardingAlgorithmName: t_order_hash_mod
+  shardingAlgorithms:
+    t_order_hash_mod:
+      type: HASH_MOD
+      props:
+        sharding-count: 4
