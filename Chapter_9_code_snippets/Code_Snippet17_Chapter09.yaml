@@ -1,0 +1,135 @@
+schemaName: sbtest
+
+dataSources:
+ds:
+url: jdbc:mysql://DB1:3306/shadow_db0
+username: root
+password: 123456
+connectionTimeoutMilliseconds: 30000
+idleTimeoutMilliseconds: 60000
+maxLifetimeMilliseconds: 1800000
+maxPoolSize: 3000
+minPoolSize: 1
+shadow_ds:
+url: jdbc:mysql://DB2:3306/shadow_db1
+username: root
+password: 123456
+connectionTimeoutMilliseconds: 30000
+idleTimeoutMilliseconds: 60000
+maxLifetimeMilliseconds: 1800000
+maxPoolSize: 3000
+minPoolSize: 1
+
+rules:
+- !SHADOW
+dataSources:
+shadowDataSource:
+sourceDataSourceName: ds
+shadowDataSourceName: shadow_ds
+tables:
+sbtest1:
+dataSourceNames:
+- shadowDataSource
+shadowAlgorithmNames:
+- user-id-insert-match-algorithm
+- user-id-update-match-algorithm
+- user-id-select-match-algorithm
+- user-id-delete-match-algorithm
+sbtest2:
+dataSourceNames:
+- shadowDataSource
+shadowAlgorithmNames:
+- user-id-insert-match-algorithm
+- user-id-update-match-algorithm
+- user-id-select-match-algorithm
+- user-id-delete-match-algorithm
+sbtest3:
+dataSourceNames:
+- shadowDataSource
+shadowAlgorithmNames:
+- user-id-insert-match-algorithm
+- user-id-update-match-algorithm
+- user-id-select-match-algorithm
+- user-id-delete-match-algorithm
+sbtest4:
+dataSourceNames:
+- shadowDataSource
+shadowAlgorithmNames:
+- user-id-insert-match-algorithm
+- user-id-update-match-algorithm
+- user-id-select-match-algorithm
+- user-id-delete-match-algorithm
+sbtest5:
+dataSourceNames:
+- shadowDataSource
+shadowAlgorithmNames:
+- user-id-insert-match-algorithm
+- user-id-update-match-algorithm
+- user-id-select-match-algorithm
+- user-id-delete-match-algorithm
+sbtest6:
+dataSourceNames:
+- shadowDataSource
+shadowAlgorithmNames:
+- user-id-insert-match-algorithm
+- user-id-update-match-algorithm
+- user-id-select-match-algorithm
+- user-id-delete-match-algorithm
+sbtest7:
+dataSourceNames:
+- shadowDataSource
+shadowAlgorithmNames:
+- user-id-insert-match-algorithm
+- user-id-update-match-algorithm
+- user-id-select-match-algorithm
+- user-id-delete-match-algorithm
+sbtest8:
+dataSourceNames:
+- shadowDataSource
+shadowAlgorithmNames:
+- user-id-insert-match-algorithm
+- user-id-update-match-algorithm
+- user-id-select-match-algorithm
+- user-id-delete-match-algorithm
+sbtest9:
+dataSourceNames:
+- shadowDataSource
+shadowAlgorithmNames:
+- user-id-insert-match-algorithm
+- user-id-update-match-algorithm
+- user-id-select-match-algorithm
+- user-id-delete-match-algorithm
+sbtest10:
+dataSourceNames:
+- shadowDataSource
+shadowAlgorithmNames:
+- user-id-insert-match-algorithm
+- user-id-update-match-algorithm
+- user-id-select-match-algorithm
+- user-id-delete-match-algorithm
+shadowAlgorithms:
+user-id-insert-match-algorithm:
+type: REGEX_MATCH
+props:
+operation: insert
+column: id
+regex: "[1]"
+user-id-update-match-algorithm:
+type: REGEX_MATCH
+props:
+operation: update
+column: id
+regex: "[1]"
+user-id-select-match-algorithm:
+type: REGEX_MATCH
+props:
+operation: select
+column: id
+regex: "[1]"
+user-id-delete-match-algorithm:
+type: REGEX_MATCH
+props:
+operation: delete
+column: id
+regex: "[1]"
+
