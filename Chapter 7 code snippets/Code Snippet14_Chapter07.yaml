@@ -1,0 +1,5 @@
+-- XA provides consistent semantics
+rules:
+- !TRANSACTION
+defaultType: XA
+providerType: Narayana
