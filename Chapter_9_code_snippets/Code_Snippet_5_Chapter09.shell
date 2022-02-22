@@ -1,0 +1,1 @@
+sysbench oltp_read_write --mysql-host=DB1 --mysql-port=3306 --mysql-user=root --mysql-password='123456' --mysql-db=sbtest --tables=1 --table-size=40000000 --report-interval=1  --time=256 --threads=256 --max-requests=5 --percentile=99  --mysql-ignore-errors="all" --range_selects=off --rand-type=uniform --auto_inc=off prepare
