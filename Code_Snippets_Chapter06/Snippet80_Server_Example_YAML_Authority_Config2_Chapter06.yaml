@@ -1,0 +1,13 @@
+rules:
+  - !AUTHORITY    
+    users:
+      - root@:root      
+      - my_user@:pwd    
+    provider:
+      type: SCHEMA_PRIVILEGES_PERMITTED      
+      props:
+        user-schema-mappings: root@=sharding_db, root@=test_db, my_user@127.0.0.1=sharding_db
+
+# root users can access sharding_db when connecting on any mainframe
+# root users can access test_db when connecting on any mainframe
+# my_user users can only access sharding_db when connecting to 127.0.0.1        
