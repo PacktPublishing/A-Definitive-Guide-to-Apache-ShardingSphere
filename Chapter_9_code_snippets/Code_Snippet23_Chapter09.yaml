@@ -1,0 +1,38 @@
+schemaName: test
+
+dataSources:
+ds_0:
+url: jdbc:mysql://127.0.0.1:3306/sbtest?serverTimezone=UTC&useSSL=false
+username: root
+password: root
+connectionTimeoutMilliseconds: 30000
+idleTimeoutMilliseconds: 60000
+maxLifetimeMilliseconds: 1800000
+maxPoolSize: 2000
+minPoolSize: 1
+ds_1:
+url: jdbc:mysql://127.0.0.2:3306/sbtest?serverTimezone=UTC&useSSL=false
+username: root
+password: root
+connectionTimeoutMilliseconds: 30000
+idleTimeoutMilliseconds: 60000
+maxLifetimeMilliseconds: 1800000
+maxPoolSize: 2000
+minPoolSize: 1
+rules:
+- !READWRITE_SPLITTING
+dataSources:
+pr_ds0:
+type: Static
+props:
+write-data-source-name: ds_0
+read-data-source-names: ds_0
+pr_ds1:
+type: Static
+props:
+write-data-source-name: ds_1
+read-data-source-names: ds_1
+
+
+
+
