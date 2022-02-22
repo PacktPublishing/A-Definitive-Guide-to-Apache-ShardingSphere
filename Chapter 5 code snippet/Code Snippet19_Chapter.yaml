@@ -1,0 +1,20 @@
+// Standalone Mode
+
+mode:
+  type: Standalone  
+  repository:
+    type: File
+    props: Properties of persist repository
+      path:
+  overwrite: true
+      
+// Cluster Mode
+
+mode:
+  type: Cluster
+  repository:
+    type: ZooKeeper
+    props:
+      namespace: governance
+      server-lists: localhost:2181
+  overwrite: true
