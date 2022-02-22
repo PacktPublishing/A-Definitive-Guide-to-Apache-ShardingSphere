@@ -1,0 +1,1 @@
+sysbench oltp_read_only --mysql-host=${IP} --mysql-port=${MySQL_Port} --mysql-user=${MySQL_User} --mysql-password=${MySQL_Passwd} --mysql-db=test --tables=1 --table-size=1000000 --report-interval=10 --time=3600 --threads=10 --max-requests=0 --percentile=99 --mysql-ignore-errors="all" --rand-type=uniform --range_selects=off --auto_inc=off prepare
