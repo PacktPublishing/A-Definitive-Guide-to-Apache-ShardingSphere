@@ -1,0 +1,1 @@
+CREATE SHARDING SCALING scaling_name;
