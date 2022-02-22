@@ -1,0 +1,3 @@
+DROP DATABASE IF EXISTS sharding_db;
+
+CREATE DATABASE sharding_db;
