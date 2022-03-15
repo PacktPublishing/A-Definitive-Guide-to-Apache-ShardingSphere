@@ -1,0 +1,35 @@
+schemaName: cyborg-database-shadow
+
+dataSources:
+  ds:
+    url: jdbc:mysql://127.0.0.1:3306/ds?serverTimezone=UTC&useSSL=false
+    username: root
+    password: 
+    connectionTimeoutMilliseconds: 30000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 50
+    minPoolSize: 1
+  ds_shadow:
+    url: jdbc:mysql://127.0.0.1:3306/ds_shadow?serverTimezone=UTC&useSSL=false
+    username: root
+    password: 
+    connectionTimeoutMilliseconds: 30000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 50
+    minPoolSize: 1
+
+rules:
+- !SHADOW
+  enable: true
+  dataSources:
+    shadowDataSource:
+      sourceDataSourceName: ds
+      shadowDataSourceName: ds_shadow
+  defaultShadowAlgorithmName: simple-note-algorithm
+  shadowAlgorithms:
+    simple-note-algorithm:
+      type: SIMPLE_NOTE
+      props:
+        cyborg-flow: true
