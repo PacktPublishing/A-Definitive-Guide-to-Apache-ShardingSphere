@@ -1,0 +1,6 @@
+spring.shardingsphere.datasource.names=write-ds,read-ds-0,read-ds-1
+
+spring.shardingsphere.rules.readwrite-splitting.load-balancers.round_robin.type=ROUND_ROBIN
+spring.shardingsphere.rules.readwrite-splitting.data-sources.pr_ds.write-data-source-name=write-ds
+spring.shardingsphere.rules.readwrite-splitting.data-sources.pr_ds.read-data-source-names=read-ds-0,read-ds-1
+spring.shardingsphere.rules.readwrite-splitting.data-sources.pr_ds.load-balancer-name=round_robin

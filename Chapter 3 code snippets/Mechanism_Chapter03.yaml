@@ -1,0 +1,10 @@
+rules:
+  - !AUTHORITY
+    users:
+      - root@:root
+      - user1@:user1
+      - user1@127.0.0.1:user1
+    provider:
+      type: SCHEMA_PRIVILEGES_PERMITTED
+      props: 
+        user-schema-mappings: root@=test, user1@127.0.0.1=db_dal_admin, user1@=test

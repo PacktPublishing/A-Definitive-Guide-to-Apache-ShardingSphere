@@ -1,0 +1,12 @@
+-!ENCRYPT  
+ encryptors:
+   aes_encryptor:
+      type: AES      
+      props:
+        aes-key-value: 123456abc  
+ tables:
+    t_user:
+      columns:
+        pwd:
+          cipherColumn: pwd          
+          encryptorName: aes_encryptor

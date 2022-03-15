@@ -1,0 +1,1 @@
+sysbench oltp_read_write --mysql-host=${Proxy_Host} --mysql-port=3307 --mysql-user=root --mysql-password='root' --mysql-db=sbtest --tables=1 --table-size=40000000 --report-interval=1  --time=300 --threads=256 --max-requests=5 --percentile=99  --mysql-ignore-errors="all" --range_selects=off --rand-type=uniform --auto_inc=off run

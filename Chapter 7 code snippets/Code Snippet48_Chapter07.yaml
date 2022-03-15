@@ -1,0 +1,5 @@
+props:
+proxy-backend-query-fetch-size: 1000
+# According to the actual stress test results, concurrently enable or remove the following two parameters
+proxy-backend-executor-suitable: OLTP # Disable it during data initialization and enable it during stress tests
+proxy-frontend-executor-size: 200 # Keep consistent with Terminals 
