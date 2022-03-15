@@ -1,0 +1,1 @@
+disable readwrite_splitting read resource_0

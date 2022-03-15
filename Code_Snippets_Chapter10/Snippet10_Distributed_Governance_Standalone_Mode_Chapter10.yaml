@@ -1,0 +1,5 @@
+mode:
+  type: Standalone  
+  repository:
+    type: File
+  overwrite: false

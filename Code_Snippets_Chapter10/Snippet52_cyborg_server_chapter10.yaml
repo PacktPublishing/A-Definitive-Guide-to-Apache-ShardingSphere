@@ -1,0 +1,9 @@
+rules:
+  - !AUTHORITY
+    users:
+      - root@%:root
+      - sharding@:sharding
+    provider:
+      type: NATIVE
+props:
+  sql-comment-parse-enabled: true

@@ -1,0 +1,11 @@
+ // Proxy server.yaml
+rules:
+  - !AUTHORITY
+    users:
+      - root@%:root
+      - sharding@:sharding
+    provider:
+      type: ALL_PRIVILEGES_PERMITTED
+  - !TRANSACTION
+    defaultType: XA
+    providerType: Atomikos

@@ -1,0 +1,5 @@
+rules:
+  - !AUTHORITY
+    users:
+      - root@%:root
+      - sharding@:sharding

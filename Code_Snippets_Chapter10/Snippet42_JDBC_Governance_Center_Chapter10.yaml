@@ -1,0 +1,10 @@
+schemaName: encrypt_db
+
+mode:
+  type: Cluster
+  repository:
+    type: ZooKeeper
+    props:
+      namespace: governance_ds
+      server-lists: localhost:2181
+  overwrite: false
