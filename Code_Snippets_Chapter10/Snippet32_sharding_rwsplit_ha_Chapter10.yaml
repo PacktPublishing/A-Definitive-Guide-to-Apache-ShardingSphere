@@ -1,0 +1,106 @@
+schemaName: sharding_db
+
+dataSources:
+  primary_ds_0:
+    url: jdbc:mysql://primary_ds_0.db:3306/primary_ds_0?serverTimezone=UTC&useSSL=false
+    username: root
+    password:
+  primary_ds_0_replica_0:
+    url: jdbc:mysql://primary_ds_0_replica_0.db:3306/primary_ds_0_replica_0?serverTimezone=UTC&useSSL=false
+    username: root
+    password:
+  primary_ds_0_replica_1:
+    url: jdbc:mysql://primary_ds_0_replica_1.db:3306/primary_ds_0_replica_1?serverTimezone=UTC&useSSL=false
+    username: root
+    password:
+  primary_ds_1:
+    url: jdbc:mysql://primary_ds_1.db:3306/primary_ds_1?serverTimezone=UTC&useSSL=false
+    username: root
+    password:
+  primary_ds_1_replica_0:
+    url: jdbc:mysql://primary_ds_1_replica_0.db:3306/primary_ds_1_replica_0?serverTimezone=UTC&useSSL=false
+    username: root
+    password:
+  primary_ds_1_replica_1:
+    url: jdbc:mysql://primary_ds_1_replica_1.db:3306/primary_ds_1_replica_1?serverTimezone=UTC&useSSL=false
+    username: root
+    password:
+
+rules:
+- !DB_DISCOVERY
+  dataSources:
+    pr_ds_0:
+      dataSourceNames:
+        - primary_ds_0
+        - primary_ds_0_replica_0
+        - primary_ds_0_replica_1
+      discoveryHeartbeatName: mgr-heartbeat
+      discoveryTypeName: mgr
+    pr_ds_1:
+      dataSourceNames:
+        - primary_ds_1
+        - primary_ds_1_replica_0
+        - primary_ds_1_replica_1
+      discoveryHeartbeatName: mgr-heartbeat
+      discoveryTypeName: mgr
+  discoveryHeartbeats:
+    mgr-heartbeat:
+      props:
+        keep-alive-cron: '0/5 * * * * ?'
+  discoveryTypes:
+    mgr:
+      type: MGR
+      props:
+        group-name: 92504d5b-6dec-11e8-91ea-246e9612aaf1
+- !READWRITE_SPLITTING
+  dataSources:
+    rw_ds_0:
+      autoAwareDataSourceName: pr_ds_0
+    rw_ds_1:
+      autoAwareDataSourceName: pr_ds_1
+- !SHARDING
+  tables:
+    t_order:
+      actualDataNodes: rw_ds_${0..1}.t_order_${0..3}
+      tableStrategy:
+        standard:
+          shardingColumn: order_id
+          shardingAlgorithmName: t_order_range
+      keyGenerateStrategy:
+        column: order_id
+        keyGeneratorName: snowflake
+    t_order_item:
+      actualDataNodes: rw_ds_${0..1}.t_order_item_${0..3}
+      tableStrategy:
+        standard:
+          shardingColumn: order_id
+          shardingAlgorithmName: t_order_item_range
+      keyGenerateStrategy:
+        column: order_item_id
+        keyGeneratorName: snowflake
+  bindingTables:
+    - t_order,t_order_item
+  defaultDatabaseStrategy:
+    standard:
+      shardingColumn: user_id
+      shardingAlgorithmName: database_inline
+  defaultTableStrategy:
+    none:
+  defaultKeyGenerateStrategy:
+    none:
+  shardingAlgorithms:
+    database_inline:
+      type: INLINE
+      props:
+        algorithm-expression: rw_ds_${user_id % 2}
+    t_order_range:
+      type: BOUNDARY_RANGE
+      props:
+        sharding-ranges: 10000000,20000000,30000000
+    t_order_item_range:
+      type: BOUNDARY_RANGE
+      props:
+        sharding-ranges: 10000000,20000000,30000000
+  keyGenerators:
+    snowflake:
+      type: SNOWFLAKE
