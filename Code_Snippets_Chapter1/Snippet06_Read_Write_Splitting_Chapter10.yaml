@@ -1,6 +1,0 @@
-rules:
-- !READWRITE_SPLITTING
-  dataSources:
-    readwrite_ds:
-       writeDataSourceName: write_ds
-       readDataSourceNames: read_ds_0,read_ds_1
