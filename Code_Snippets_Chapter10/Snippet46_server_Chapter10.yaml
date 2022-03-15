@@ -1,0 +1,10 @@
+rules:
+- !AUTHORITY
+  users:
+    - root@%:root
+    - user0@127.0.0.1:password0
+    - user1@127.0.0.1:password1
+  provider:
+    type: SCHEMA_PRIVILEGES_PERMITTED
+    props: 
+      user-schema-mappings: root@%=encrypt_db_0,root@%=encrypt_db_1,user0@127.0.0.1=encrypt_db_0,user1@127.0.0.1=encrypt_db_1
