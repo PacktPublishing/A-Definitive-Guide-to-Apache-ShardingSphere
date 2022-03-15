@@ -1,0 +1,22 @@
+scaling:
+  blockQueueSize: 10000
+  workerThread: 40
+  clusterAutoSwitchAlgorithm:
+    type: IDLE
+    props:
+      incremental-task-idle-minute-threshold: 30
+  dataConsistencyCheckAlgorithm:
+    type: DEFAULT
+
+mode:
+  type: Cluster
+  repository:
+    type: ZooKeeper
+    props:
+      namespace: governance_ds
+      server-lists: localhost:2181
+      retryIntervalMilliseconds: 500
+      timeToLiveSeconds: 60
+      maxRetries: 3
+      operationTimeoutMilliseconds: 500
+  overwrite: false
