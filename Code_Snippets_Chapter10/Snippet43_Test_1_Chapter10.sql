@@ -1,0 +1,3 @@
+SHOW SCHEMA RESOURCES FROM encrypt_db;
+
+SHOW ENCRYPT RULES FROM encrypt_db;
