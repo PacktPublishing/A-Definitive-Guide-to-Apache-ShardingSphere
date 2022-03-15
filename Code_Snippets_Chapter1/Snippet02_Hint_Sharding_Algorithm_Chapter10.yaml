@@ -1,0 +1,14 @@
+rules:
+- !SHARDING
+  tables: 
+    t_order: 
+      databaseStrategy: 
+        hint: 
+          shardingAlgorithmName: database_hint
+
+  shardingAlgorithms:
+    database_hint:
+      type: CLASS_BASED
+      props:
+        strategy: HINT
+        algorithmClassName: xxx
