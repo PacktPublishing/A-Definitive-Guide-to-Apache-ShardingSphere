@@ -1,0 +1,44 @@
+schemaName: sharding_db
+
+dataSources:
+  ds_0:
+    url: jdbc:postgresql://127.0.0.1:5432/demo_ds_0
+    username: postgres
+    password: 123456
+    connectionTimeoutMilliseconds: 30000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 50
+    minPoolSize: 1
+  ds_1:
+    url: jdbc:postgresql://127.0.0.1:5432/demo_ds_1
+    username: postgres
+    password: 123456
+    connectionTimeoutMilliseconds: 30000
+    idleTimeoutMilliseconds: 60000
+    maxLifetimeMilliseconds: 1800000
+    maxPoolSize: 50
+    minPoolSize: 1
+
+rules:
+- !SHARDING
+  autoTables:
+    t_order:
+      actualDataSources: ds_0, ds_1
+      shardingStrategy:
+        standard:
+          shardingColumn: order_id
+          shardingAlgorithmName: hash_mod
+      keyGenerateStrategy:
+        column: order_id
+        keyGeneratorName: snowflake
+  
+  shardingAlgorithms:
+    hash_mod:
+      type: HASH_MOD
+      props:
+        sharding-count: 4
+  
+  keyGenerators:
+    snowflake:
+      type: SNOWFLAKE
